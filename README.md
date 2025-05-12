@@ -44,7 +44,6 @@ my-app/
 ├── Execute.sh
 ├── composer.json
 └── README.md
-
 ```
 
 ### Namespace or Class not found issue resolved
@@ -71,4 +70,9 @@ $ composer create-project freeframe/freeframe my-app --stability=dev
 ### Start Server
 ```sh
 $ php free serve
+```
+### Commands
+> Check version
+```sh
+$ php free --version
 ```
