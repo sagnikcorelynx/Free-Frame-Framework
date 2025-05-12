@@ -18,6 +18,33 @@ FreeFrame is a lightweight, modular PHP framework inspired by Laravel and CakePH
 
 ### 🧱 Project Structure
 ```text
+my-app/
+├── App/
+│   ├── Controllers/
+|   |── Middlewares/ 
+│   ├── Models/
+│   ├── Services/
+│   └── Helpers/
+├── config/
+├── public/
+│   └── index.php
+├── resources/
+│   ├── pages/
+│   └── assets/
+├── routes/
+│   └── route.php
+├── storage/
+│   ├── Logs/
+|   ├── Public/
+│   └── Cache/
+|   
+├── .env
+├── .env.example
+├── free
+├── Execute.sh
+├── composer.json
+└── README.md
+
 ```
 
 ### Namespace or Class not found issue resolved
