@@ -76,3 +76,7 @@ $ php free serve
 ```sh
 $ php free --version
 ```
+> Create Controller
+```sh
+$ php free make:controller UserController
+```
