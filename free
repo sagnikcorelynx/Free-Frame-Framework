@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+// CLI Entry for FreeFrame Framework
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+
+// Initialize the Free CLI application
+$app = new Application('FreeFrame CLI', '1.0.0');
+
+// Register your command classes
+$app->add(new \App\Commands\MakeControllerCommand());
+
+// Future: auto-register all classes in app/Commands dynamically (optional)
+
+$app->run();
