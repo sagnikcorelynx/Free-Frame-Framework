@@ -38,3 +38,8 @@ https://packagist.org/packages, then click on `Update`
 
 - Create a blnak project `$ composer create-project freeframe/freeframe my-app`
 - Alter try `$ composer create-project freeframe/freeframe my-app --stability=dev`
+
+### Create a Project
+```sh
+$ composer create-project freeframe/freeframe my-app --stability=dev
+```
