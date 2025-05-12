@@ -1,0 +1,39 @@
+{
+    "name": "free/frame",
+    "type": "project",
+    "description": "The Free Frame Framework.",
+    "keywords": [
+        "framework",
+        "freeframe"
+    ],
+    "license": "MIT",
+    "require": {
+        "symfony/console": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        },
+        "files": [
+            "App/Helpers/Helpers.php"
+        ]
+    },
+    "scripts": {
+        "start": "php bin/console server:run",
+        "cache:clear": "php bin/console cache:clear",
+        "cache:warmup": "php bin/console cache:warmup",
+        "assets:install": "php bin/console assets:install web"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "7.2.*"
+        }
+    }
+}
+    

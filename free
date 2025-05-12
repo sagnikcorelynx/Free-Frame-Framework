@@ -5,12 +5,14 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
+use App\Commands\ServeCommand;
 
 // Initialize the Free CLI application
 $app = new Application('FreeFrame CLI', '1.0.0');
 
 // Register your command classes
-$app->add(new \App\Commands\MakeControllerCommand());
+$app->add(new ServeCommand());
+//$app->add(new \App\Commands\MakeControllerCommand());
 
 // Future: auto-register all classes in app/Commands dynamically (optional)
 

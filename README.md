@@ -21,5 +21,9 @@ FreeFrame is a lightweight, modular PHP framework inspired by Laravel and CakePH
 ```
 ### Start Server
 ```sh
-$ php free serve --port=8000
+$ php free serve
+```
+### Namespace or Class not found issue resolved
+```sh
+$ composer dump-autoload
 ```
