@@ -19,10 +19,7 @@ FreeFrame is a lightweight, modular PHP framework inspired by Laravel and CakePH
 ### 🧱 Project Structure
 ```text
 ```
-### Start Server
-```sh
-$ php free serve
-```
+
 ### Namespace or Class not found issue resolved
 ```sh
 $ composer dump-autoload
@@ -42,4 +39,9 @@ https://packagist.org/packages, then click on `Update`
 ### Create a Project
 ```sh
 $ composer create-project freeframe/freeframe my-app --stability=dev
+```
+
+### Start Server
+```sh
+$ php free serve
 ```
