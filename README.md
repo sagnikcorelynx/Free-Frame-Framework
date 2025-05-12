@@ -27,3 +27,14 @@ $ php free serve
 ```sh
 $ composer dump-autoload
 ```
+### Publish Framework
+- Tag latest commit with a semantic version:
+```sh
+$ git tag v1.0.0
+$ git push origin v1.0.0
+```
+- Submit Framework repo at Packagist
+https://packagist.org/packages, then click on `Update`
+
+- Create a blnak project `$ composer create-project freeframe/freeframe my-app`
+- Alter try `$ composer create-project freeframe/freeframe my-app --stability=dev`
