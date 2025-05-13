@@ -15,7 +15,7 @@ if (file_exists($dotenvPath)) {
 }
 // Load environment or config settings
 
-use App\Core\Logger;
+use Core\Logger;
 
 // Set error handler for warnings, notices, etc.
 set_error_handler(function ($severity, $message, $file, $line) {
