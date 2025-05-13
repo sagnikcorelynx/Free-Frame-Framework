@@ -71,11 +71,12 @@ https://packagist.org/packages, then click on `Update`
 $ composer require symfony/console
 ```
 2. Create CLI Entry File
+```text
 framework/
     ├── ignite_file        ← this is CLI
     ├── composer.json
     ├── vendor/
-
+```
 
 ### Create a Project
 ```sh
