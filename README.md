@@ -111,7 +111,7 @@ $router->get('/', 'HomeController@index');
 ```
 
 ### 👏 Credit
-Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivu)**
+Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
 
 💻 Tech Stack
 
