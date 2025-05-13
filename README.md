@@ -80,3 +80,11 @@ $ php free --version
 ```sh
 $ php free make:controller UserController
 ```
+
+### Create Routes
+> At routes/route.php
+```php
+use App\Controllers\HomeController;
+
+$router->get('/', 'HomeController@index');
+```
