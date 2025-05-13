@@ -42,18 +42,18 @@ class MakeServiceCommand extends Command
         }
 
         $template = <<<PHP
-                    <?php
+<?php
 
-                    namespace App\Services;
+namespace App\Services;
 
-                    class $serviceName
-                    {
-                        public function __construct()
-                        {
-                            // Service constructor
-                        }
-                    }
-                    PHP;
+class $serviceName
+{
+    public function __construct()
+    {
+        // Service constructor
+    }
+}
+PHP;
 
         file_put_contents($filename, $template);
         $output->writeln("<info>Service $serviceName created successfully!</info>");

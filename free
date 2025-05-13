@@ -17,6 +17,7 @@ $app->add(new ServeCommand());
 $app->add(new MakeControllerCommand());
 $app->add(new \App\Commands\MakeServiceCommand());
 $app->add(new \App\Commands\MakeModelCommand());
+$app->add(new App\Commands\MakeCommandCommand());
 
 // Future: auto-register all classes in app/Commands dynamically (optional)
 

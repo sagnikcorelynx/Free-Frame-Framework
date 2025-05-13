@@ -42,20 +42,20 @@ class MakeControllerCommand extends Command
         }
 
         $template = <<<PHP
-                    <?php
+<?php
 
-                    namespace App\Controllers;
+namespace App\Controllers;
 
-                    use App\Controllers\Controller;
+use App\Controllers\Controller;
 
-                    class $controllerName extends Controller
-                    {
-                        public function index()
-                        {
-                            // Default index method
-                        }
-                    }
-                    PHP;
+class $controllerName extends Controller
+{
+    public function index()
+    {
+        // Default index method
+    }
+}
+PHP;
 
         file_put_contents($filename, $template);
         $output->writeln("<info>Controller $controllerName created successfully!</info>");
