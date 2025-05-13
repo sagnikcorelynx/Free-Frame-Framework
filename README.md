@@ -102,6 +102,12 @@ FreeFrame CLI v1.0.0
 $ php free make:controller HomeController
 ```
 > `App\Controllers\New-Controller`
+
+### Create Service Classes under App/Services
+```sh
+$ php free make:service UserService
+```
+
 ### Create Routes
 > At routes/route.php
 ```php

@@ -15,7 +15,7 @@ $app = new Application('FreeFrame CLI', $version);
 // Register your command classes
 $app->add(new ServeCommand());
 $app->add(new MakeControllerCommand());
-//$app->add(new \App\Commands\MakeControllerCommand());
+$app->add(new \App\Commands\MakeServiceCommand());
 
 // Future: auto-register all classes in app/Commands dynamically (optional)
 
