@@ -97,11 +97,11 @@ $ php free --version
 ```sh
 FreeFrame CLI v1.0.0
 ```
-> Create Controller
+###  Create Controller
 ```sh
-$ php free make:controller UserController
+$ php free make:controller HomeController
 ```
-
+> `App\Controllers\New-Controller`
 ### Create Routes
 > At routes/route.php
 ```php

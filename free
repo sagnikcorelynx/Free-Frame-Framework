@@ -6,6 +6,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 use App\Commands\ServeCommand;
+use App\Commands\MakeControllerCommand;
 
 // Initialize the Free CLI application
 $version = trim(shell_exec('git describe --tags --abbrev=0') ?? 'dev-master');
@@ -13,6 +14,7 @@ $app = new Application('FreeFrame CLI', $version);
 
 // Register your command classes
 $app->add(new ServeCommand());
+$app->add(new MakeControllerCommand());
 //$app->add(new \App\Commands\MakeControllerCommand());
 
 // Future: auto-register all classes in app/Commands dynamically (optional)
