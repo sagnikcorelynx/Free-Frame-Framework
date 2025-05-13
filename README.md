@@ -108,6 +108,30 @@ $ php free make:controller HomeController
 $ php free make:service UserService
 ```
 
+### Connect database (Default Support `Mysql` & `MongoDB`)
+> At Controller or Service Layer
+```php
+use App\Core\Database;
+
+$db = (new Database())->getConnection();
+
+// Example RDB query
+if ($db instanceof PDO) {
+    $stmt = $db->query("SELECT * FROM users");
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Example MongoDB query:
+if ($db instanceof \MongoDB\Database) {
+    $collection = $db->users;
+    $users = $collection->find()->toArray();
+}
+```
+> Install Mongodb extension
+```sh
+extension=php_mongodb.dll
+```
+
 ### Create Routes
 > At routes/route.php
 ```php
