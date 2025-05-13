@@ -8,7 +8,8 @@ use Symfony\Component\Console\Application;
 use App\Commands\ServeCommand;
 
 // Initialize the Free CLI application
-$app = new Application('FreeFrame CLI', '1.0.0');
+$version = trim(shell_exec('git describe --tags --abbrev=0') ?? 'dev-master');
+$app = new Application('FreeFrame CLI', $version);
 
 // Register your command classes
 $app->add(new ServeCommand());

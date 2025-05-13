@@ -94,6 +94,9 @@ $ php free serve
 ```sh
 $ php free --version
 ```
+```sh
+FreeFrame CLI v1.0.0
+```
 > Create Controller
 ```sh
 $ php free make:controller UserController
