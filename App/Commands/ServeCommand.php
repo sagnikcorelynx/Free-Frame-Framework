@@ -26,7 +26,7 @@ class ServeCommand extends Command
         $port = $input->getOption('port') ?? 8000;
 
         // Define the document root (public folder)
-        $documentRoot = __DIR__ . '/../../public';
+        $documentRoot = __DIR__ . '/../../Public';
 
         $output->writeln("Starting PHP server on http://localhost:$port");
 
