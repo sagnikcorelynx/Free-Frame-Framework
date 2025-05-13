@@ -107,6 +107,11 @@ $ php free make:controller HomeController
 ```sh
 $ php free make:service UserService
 ```
+### Create Model
+```sh
+$ php free make:model User
+```
+> Created at `App/Models` folder
 
 ### Connect database (Default Support `Mysql` & `MongoDB`)
 > At Controller or Service Layer
