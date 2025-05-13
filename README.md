@@ -74,6 +74,7 @@ $ composer create-project freeframe/freeframe my-app --stability=dev
 ```sh
 $ php free serve
 ```
+> Open `http://localhost:8000/`
 ### Commands
 > Check version
 ```sh
