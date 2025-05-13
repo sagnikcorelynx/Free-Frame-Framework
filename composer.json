@@ -9,7 +9,7 @@
         "mvc",
         "cli"
     ],
-    "license": "Sagnik",
+    "license": "MIT",
     "authors": [
         {
             "name": "Sagnik",
