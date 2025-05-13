@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /config/
+Disallow: /core/
+Disallow: /vendor/
+Disallow: /storage/
+Disallow: /app/Commands/
+Disallow: /app/Helpers/
+Disallow: /app/Middleware/
+Disallow: /app/Services/
