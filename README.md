@@ -16,7 +16,7 @@ FreeFrame is a lightweight, modular PHP framework inspired by Laravel and CakePH
 
 ---
 
-### 🧱 Project Structure
+### 🧱 Framework Structure
 ```text
 my-app/
 ├── App/
