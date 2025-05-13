@@ -26,6 +26,9 @@ my-app/
 │   ├── Services/
 │   └── Helpers/
 ├── config/
+├── core/
+|   ├── bootstrap.php
+|   |── Router.php
 ├── public/
 │   └── index.php
 ├── resources/
