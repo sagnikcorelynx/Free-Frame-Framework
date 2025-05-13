@@ -65,6 +65,18 @@ https://packagist.org/packages, then click on `Update`
 - Create a blnak project `$ composer create-project freeframe/freeframe my-app`
 - Alter try `$ composer create-project freeframe/freeframe my-app --stability=dev`
 
+### ✅ Install Symfony Console via Composer
+1. Install
+```sh
+$ composer require symfony/console
+```
+2. Create CLI Entry File
+framework/
+    ├── ignite_file        ← this is CLI
+    ├── composer.json
+    ├── vendor/
+
+
 ### Create a Project
 ```sh
 $ composer create-project freeframe/freeframe my-app --stability=dev
