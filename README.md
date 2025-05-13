@@ -49,7 +49,7 @@ my-app/
 └── README.md
 ```
 
-### Namespace or Class not found issue resolved
+### 🏚️ Namespace or Class not found issue resolved
 ```sh
 $ composer dump-autoload
 ```
@@ -78,17 +78,18 @@ framework/
     ├── vendor/
 ```
 
-### Create a Project
+### 🗂️ Create a Project
 ```sh
 $ composer create-project freeframe/freeframe my-app --stability=dev
 ```
 
-### Start Server
+###  Start Server
 ```sh
 $ php free serve
 ```
 > Open `http://localhost:8000/`
-### Commands
+
+### List of Commands
 > Check version
 ```sh
 $ php free --version
