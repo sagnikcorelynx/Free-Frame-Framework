@@ -116,7 +116,7 @@ $ php free make:model User
 ### Connect database (Default Support `Mysql` & `MongoDB`)
 > At Controller or Service Layer
 ```php
-use App\Core\Database;
+use Core\Database;
 
 $db = (new Database())->getConnection();
 
