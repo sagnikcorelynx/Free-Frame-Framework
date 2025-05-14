@@ -145,6 +145,10 @@ if ($db instanceof \MongoDB\Database) {
 ```sh
 extension=php_mongodb.dll
 ```
+### Migrate Tables from RDB
+```sh
+$ php free migrate
+```
 
 ### Create Routes
 > At routes/route.php
