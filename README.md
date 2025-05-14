@@ -1,6 +1,6 @@
 # FreeFrame – A Lightweight PHP Framework
 
-![FreeFrame](./Public/assets/logo.webp)
+<img src="./Public/assets/logo.webp" width="50%" height="50%"/>
 
 FreeFrame is a lightweight, modular PHP framework inspired by Laravel and CakePHP, built for rapid development with minimal setup. It comes with its own powerful CLI tool named `free`, allowing you to scaffold components, manage your project structure, and streamline development.
 
