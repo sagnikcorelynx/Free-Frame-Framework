@@ -18,6 +18,13 @@ FreeFrame is a lightweight, modular PHP framework inspired by Laravel and CakePH
 
 ---
 
+### System Compatibility
+- PHP 8.0
+- Composer 2.0
+- Apache (XAMPP, LAMP)
+- PDO Driver
+- MongoDB driver
+
 ### 🧱 Framework Structure
 ```text
 my-app/
