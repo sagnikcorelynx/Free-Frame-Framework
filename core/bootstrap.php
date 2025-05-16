@@ -14,8 +14,10 @@ if (file_exists($dotenvPath)) {
     }
 }
 // Load environment or config settings
-
+define('APP_DEBUG', $config['debug']);
+define('APP_ENV', $config['env']);
 use Core\Logger;
+use Core\Debugger;
 
 // Set error handler for warnings, notices, etc.
 set_error_handler(function ($severity, $message, $file, $line) {
@@ -42,3 +44,5 @@ register_shutdown_function(function () {
         echo "500 | Fatal error occurred. Check logs.";
     }
 });
+
+Debugger::register();

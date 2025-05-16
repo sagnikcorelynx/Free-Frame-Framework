@@ -122,6 +122,10 @@ $ php free make:model User
 ```
 > Created at `App/Models` folder
 
+### Clear Error logs
+```sh
+$ php free log:clear
+```
 ### Connect database (Default Support `Mysql` & `MongoDB`)
 > At Controller or Service Layer
 ```php

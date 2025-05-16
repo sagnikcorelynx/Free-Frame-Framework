@@ -36,5 +36,8 @@
         "preferred-install": "dist",
         "optimize-autoloader": true,
         "sort-packages": true
+    },
+    "require-dev": {
+        "filp/whoops": "^2.18"
     }
 }
