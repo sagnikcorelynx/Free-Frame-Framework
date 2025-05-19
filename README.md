@@ -136,6 +136,11 @@ $ php free help
 ```
 ![Help](Public/assets/helps.PNG)
 
+### List of Routes
+```sh
+$ php free route:list
+```
+
 ### Connect database (Default Support `Mysql` & `MongoDB`)
 > At Controller or Service Layer
 ```php
