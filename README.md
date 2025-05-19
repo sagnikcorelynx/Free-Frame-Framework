@@ -130,6 +130,11 @@ $ php free log:clear
 ```sh
 $ php free storage:link
 ```
+### See Available commands
+```sh
+$ php free help
+```
+![Help]('../Public/assets/helps.PNG')
 
 ### Connect database (Default Support `Mysql` & `MongoDB`)
 > At Controller or Service Layer
