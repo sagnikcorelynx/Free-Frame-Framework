@@ -21,6 +21,7 @@ $app->add(new App\Commands\MakeCommandCommand());
 $app->add(new \App\Commands\MigrateCommand());
 $app->add(new App\Commands\LogClearCommand());
 $app->add(new App\Commands\StorageLinkCommand());
+$app->add(new App\Commands\RouteListCommand());
 
 $commands = [
     'make:controller'   => 'Generate a controller file',

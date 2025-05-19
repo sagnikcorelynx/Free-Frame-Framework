@@ -41,4 +41,8 @@ class Router {
             }
         }
     }
+
+    public function getRoutes(): array {
+        return $this->routes;
+    }
 }
