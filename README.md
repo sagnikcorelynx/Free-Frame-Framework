@@ -126,6 +126,11 @@ $ php free make:model User
 ```sh
 $ php free log:clear
 ```
+### Create Storage link in public
+```sh
+$ php free storage:link
+```
+
 ### Connect database (Default Support `Mysql` & `MongoDB`)
 > At Controller or Service Layer
 ```php
