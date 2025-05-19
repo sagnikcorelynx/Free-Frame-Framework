@@ -134,7 +134,7 @@ $ php free storage:link
 ```sh
 $ php free help
 ```
-![Help]('./Public/assets/helps.PNG')
+![Help](Public/assets/helps.PNG)
 
 ### Connect database (Default Support `Mysql` & `MongoDB`)
 > At Controller or Service Layer
