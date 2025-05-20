@@ -58,6 +58,37 @@ my-app/
 └── README.md
 ```
 
+### Implemented Features
+```text
+✔ CLI (php free)
+
+✔ Routing system (routes/route.php)
+
+✔ Controllers (make:controller)
+
+✔ Services (make:service)
+
+✔ Models (make:model)
+
+✔ Middleware (make:middleware)
+
+✔ Logging system (error.log)
+
+✔ log:clear and storage:link commands
+
+✔ Route listing (route:list)
+
+✔ Auto exception logging
+
+✔ Basic MySQL & MongoDB integration setup
+
+✔ Custom command generator (make:command)
+
+✔ Debugger placeholder
+
+✔ CLI server (php free serve)
+```
+
 ### 🏚️ Namespace or Class not found issue resolved
 ```sh
 $ composer dump-autoload
