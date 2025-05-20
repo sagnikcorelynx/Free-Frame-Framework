@@ -16,17 +16,17 @@ $method = $_SERVER['REQUEST_METHOD'];
 // Dispatch the request
 $response = $router->dispatch($uri, $method);
 
+
 // If a response is returned, display it
 if ($response !== null) {
     echo $response;
 } else {
     // If no route matches, fallback
-    if($uri == '/'){
-        return print('Welcome to FreeFrame!');
-    }else{
-        return http_response_code(404);
+    if ($uri == '/') {
+        echo '<h1 style="text-align: center; color: #3a9cff;">Welcome to <span style="font-weight: bold;">FreeFrame</span>!</h1>';
+    } else {
+        http_response_code(404);
     }
-    
 }
 // Handle any exceptions
 set_exception_handler(function ($exception) {

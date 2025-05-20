@@ -14,6 +14,7 @@ if (file_exists($dotenvPath)) {
     }
 }
 // Load environment or config settings
+$config = require_once __DIR__ . '/../core/config.php';
 define('APP_DEBUG', $config['debug']);
 define('APP_ENV', $config['env']);
 use Core\Logger;

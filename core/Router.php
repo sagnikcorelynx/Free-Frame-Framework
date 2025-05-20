@@ -66,7 +66,6 @@ class Router
     {
         $uri = trim(parse_url($requestUri, PHP_URL_PATH), '/');
         $method = strtoupper($requestMethod);
-
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === $method) {
                 $handler = $route['action'];
@@ -93,7 +92,19 @@ class Router
         }
 
         http_response_code(404);
-        echo "404 Not Found: {$uri}";
+        if ($uri === '') {
+            // Handle base URL
+        } else {
+            $html = <<<HTML
+            <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+                <div style="text-align: center;">
+                    <h1 style="font-size: 3em; color: #3a9cff;">404 not found...!</h1>
+                    <p style="font-size: 1.5em;">The requested page could not be found.</p>
+                </div>
+            </div>
+            HTML;
+            echo $html;
+        }
     }
 
     protected function executeHandler($handler, $request)
