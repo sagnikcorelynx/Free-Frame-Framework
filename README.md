@@ -141,6 +141,11 @@ $ php free help
 $ php free route:list
 ```
 
+### Create Middleware
+```sh
+$ php free make:middleware AuthMiddleware
+```
+
 ### Connect database (Default Support `Mysql` & `MongoDB`)
 > At Controller or Service Layer
 ```php
