@@ -25,15 +25,16 @@ $app->add(new App\Commands\RouteListCommand());
 $app->add(new App\Commands\MakeMiddlewareCommand());
 
 $commands = [
-    'make:controller'   => 'Generate a controller file',
-    'make:model'        => 'Generate a model file',
-    'make:service'      => 'Generate service file',
-    'route:list'        => 'Show all defined routes',
-    'log:clear'         => 'Clear error logs',
-    'make:command'      => 'Create custom command file',
-    'storage:link'      => 'Create simbolic link between storage and public',
-    'help'              => 'List all available commands',
-    'serve'             => 'Start development server'
+    'make:controller'         => 'Generate a controller file',
+    'make:model'              => 'Generate a model file',
+    'make:service'            => 'Generate service file',
+    'php free make:middleware'=> 'Generate middleware file',
+    'route:list'              => 'Show all defined routes',
+    'log:clear'               => 'Clear error logs',
+    'make:command'            => 'Create custom command file',
+    'storage:link'            => 'Create simbolic link between storage and public',
+    'help'                    => 'List all available commands',
+    'serve'                   => 'Start development server'
 ];
 
 $command = $argv[1] ?? 'help';
@@ -41,7 +42,7 @@ $command = $argv[1] ?? 'help';
 if ($command === 'help') {
     echo "\n\033[1;34mFreeFrame CLI - Available Commands:\033[0m\n\n";
     foreach ($commands as $key => $desc) {
-        echo "\033[32m  {$key}\033[0m\t\t{$desc}\n";
+        printf("\033[32m  %-25s\033[0m%s\n", $key, $desc);
     }
     echo "\n";
     exit;
