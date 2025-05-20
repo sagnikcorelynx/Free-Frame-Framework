@@ -23,7 +23,15 @@ if ($response !== null) {
 } else {
     // If no route matches, fallback
     if ($uri == '/') {
-        echo '<h1 style="text-align: center; color: #3a9cff;">Welcome to <span style="font-weight: bold;">FreeFrame</span>!</h1>';
+        echo <<<HTML
+        <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+            <div style="text-align: center;">
+                <img src="/assets/logo.webp" width="50%" height="50%" alt="FreeFrame Logo">
+                <h1 style="font-size: 3em; color: #3a9cff;">Welcome to <span style="font-weight: bold;">FreeFrame</span>!</h1>
+                <p style="font-size: 1.5em;">A lightweight PHP framework with a custom CLI, inspired by Laravel and CakePHP.</p>
+            </div>
+        </div>
+        HTML;
     } else {
         http_response_code(404);
     }
