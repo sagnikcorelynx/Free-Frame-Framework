@@ -78,12 +78,23 @@ class MigrateCommand extends Command
         return Command::SUCCESS;
     }
 
+    /**
+     * Get the PDO instance.
+     *
+     * @return PDO
+     */
     private function getPDO(): PDO
     {
         $db = require __DIR__ . '/../../config/database.php';
         return new PDO("mysql:host={$db['host']};dbname={$db['database']}", $db['username'], $db['password']);
     }
 
+    /**
+     * Creates the migrations table if it does not exist.
+     *
+     * @param PDO $pdo
+     * @return void
+     */
     private function createMigrationsTable(PDO $pdo)
     {
         $pdo->exec("
@@ -96,12 +107,24 @@ class MigrateCommand extends Command
         ");
     }
 
+    /**
+     * Get all the migration files that have already been run.
+     *
+     * @param PDO $pdo
+     * @return array
+     */
     private function getMigratedMigrations(PDO $pdo)
     {
         $stmt = $pdo->query("SELECT migration FROM migrations");
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
 
+    /**
+     * Get the class name from a file name.
+     *
+     * @param string $file
+     * @return string
+     */
     private function getClassName($file)
     {
         $contents = file_get_contents($file);
