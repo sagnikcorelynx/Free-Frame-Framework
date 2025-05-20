@@ -4,14 +4,27 @@ namespace Core;
 
 use PDO;
 use PDOException;
+use MongoDB\Driver\Exception\Exception as MongoDBException;
+use MongoDB\Driver\Manager as MongoDBManager;
+use MongoDB\Driver\Query as MongoDBQuery;
+use MongoDB\Driver\Cursor as MongoDBCursor;
+use Core\Database\QueryBuilder;
 
-class Model
+class Model extends QueryBuilder
 {
     protected static $connection;
     protected $table;
 
-    public function __construct()
+    public function __construct(PDO $pdo)
     {
+        parent::__construct($pdo);
+        
+        if (!$this->table) {
+            $this->table = strtolower((new \ReflectionClass($this))->getShortName()) . 's';
+        }
+
+        $this->table($this->table); // Set default table
+        
         if (!self::$connection) {
             $this->connect();
         }
