@@ -25,7 +25,12 @@ class MakeModelCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $name = $input->getArgument('name');
-        $modelPath = __DIR__ . '/../../App/Models/' . $name . '.php';
+        $directory = __DIR__ . '/../../App/Models/';
+        $modelPath = $directory . $name . '.php';
+
+        if (!file_exists($directory)) {
+            mkdir($directory, 0755, true);
+        }
 
         if (file_exists($modelPath)) {
             $output->writeln("<error>Model already exists!</error>");

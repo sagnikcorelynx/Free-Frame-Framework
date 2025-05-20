@@ -1,49 +1,61 @@
 <?php
 
-namespace App\Commands;
+namespace Core;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputArgument;
+use PDO;
+use PDOException;
 
-class MakeModelCommand extends Command
+class Model
 {
-    // ✅ This sets the command name properly
-    protected static $defaultName = 'make:model';
+    protected static $connection;
+    protected $table;
 
-    protected function configure()
+    public function __construct()
     {
-        $this
-            ->setDescription('Create a new model class')
-            ->addArgument('name', InputArgument::REQUIRED, 'The name of the model');
+        if (!self::$connection) {
+            $this->connect();
+        }
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): int
+    protected function connect()
     {
-        $name = $input->getArgument('name');
-        $modelPath = __DIR__ . '/../../App/Models/' . $name . '.php';
+        $config = require __DIR__ . '/../config/database.php';
 
-        if (file_exists($modelPath)) {
-            $output->writeln("<error>Model already exists!</error>");
-            return Command::FAILURE;
+        if ($config['driver'] === 'mysql') {
+            $dsn = "mysql:host={$config['host']};dbname={$config['database']};charset=utf8";
+            try {
+                self::$connection = new PDO($dsn, $config['username'], $config['password']);
+                self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                error_log($e->getMessage(), 3, __DIR__ . '/../Storage/Logs/error.log');
+                die("Database connection error");
+            }
+        } else {
+            $dsn = "mongodb://{$config['host']}:{$config['port']}";
+            try {
+                self::$connection = new \MongoDB\Driver\Manager($dsn);
+            } catch (\MongoDB\Driver\Exception\Exception $e) {
+                error_log($e->getMessage(), 3, __DIR__ . '/../Storage/Logs/error.log');
+                die("Database connection error");
+            }
         }
+    }
 
-        $template = "<?php
+    public static function getConnection()
+    {
+        return self::$connection;
+    }
 
-        namespace App\Models;
+    public function all()
+    {
+        $stmt = self::$connection->query("SELECT * FROM {$this->table}");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
-        use Core\Model;
-
-        class $name extends Model
-        {
-            protected \$table = '" . strtolower($name) . "s';
-        }
-        ";
-
-        file_put_contents($modelPath, $template);
-
-        $output->writeln("<info>Model $name created successfully.</info>");
-        return Command::SUCCESS;
+    public function find($id)
+    {
+        $stmt = self::$connection->prepare("SELECT * FROM {$this->table} WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
