@@ -103,6 +103,7 @@ $ git push origin v1.0.0
 https://packagist.org/packages, then click on `Update`
 
 - Create a blnak project `$ composer create-project freeframe/freeframe my-app`
+- Specify version `$ composer create-project freeframe/freeframe my-app "2.5"`
 - Alter try `$ composer create-project freeframe/freeframe my-app --stability=dev`
 
 ### ✅ Install Symfony Console via Composer
