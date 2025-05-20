@@ -184,6 +184,8 @@ $router->get('/', 'HomeController@index');
 
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
+
+
 I'm a self-taught programmer and I'm open to any kind of feedback/suggestions. This framework is a hobby project and I'm doing it in my free time. If you find any bug or something that you think should be improved please open an issue or make a pull request.
 
 I'm not a professional programmer, nor I'm an expert in any field, I'm just a simple guy who loves programming and wants to share his knowledge with others. I'm happy to see people using my project and I'm always open to any kind of feedback.
