@@ -188,11 +188,8 @@ Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
 
 I'm a self-taught programmer and I'm open to any kind of feedback/suggestions. This framework is a hobby project and I'm doing it in my free time. If you find any bug or something that you think should be improved please open an issue or make a pull request.
 
-I'm not a professional programmer, nor I'm an expert in any field, I'm just a simple guy who loves programming and wants to share his knowledge with others. I'm happy to see people using my project and I'm always open to any kind of feedback.
-
 I'm also a big fan of the Laravel framework, and I've been inspired by it, so if you see something that looks like Laravel, is because I like how they do things. But, I'm not trying to copy them, I'm just trying to do something similar but with my own style.
 
-I'm also a big fan of the Vue.js ecosystem, and I've been inspired by it, so if you see something that looks like Vue, is because I like how they do things. But, I'm not trying to copy them, I'm just trying to do something similar but with my own style.
 
 💻 Tech Stack
 
