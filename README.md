@@ -102,7 +102,7 @@ $ git push origin v1.0.0
 - Submit Framework repo at Packagist
 https://packagist.org/packages, then click on `Update`
 
-- Create a blnak project `$ composer create-project freeframe/freeframe my-app`
+- Create a blnak project `$ composer create-project freeframe/freeframe my-app ^2.5`
 - Specify version `$ composer create-project freeframe/freeframe my-app "2.5"`
 - Alter try `$ composer create-project freeframe/freeframe my-app --stability=dev`
 
