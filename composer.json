@@ -39,5 +39,7 @@
     },
     "require-dev": {
         "filp/whoops": "^2.18"
-    }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
