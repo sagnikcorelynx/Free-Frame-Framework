@@ -213,7 +213,7 @@ $ php free make:request CommonRequest
 ```php
 use Core\Http\Request;
 use Core\Http\Response;
-use use App\Requests\CommonRequest;
+use App\Requests\CommonRequest;
 
 public function store()
 {
