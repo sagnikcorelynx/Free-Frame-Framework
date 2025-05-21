@@ -10,6 +10,8 @@ use App\Commands\MakeControllerCommand;
 
 // Initialize the Free CLI application
 $version = trim(shell_exec('git describe --tags --abbrev=0') ?? 'dev-master');
+$composer = json_decode(file_get_contents(__DIR__ . '../composer.json'), true);
+$version = $composer['version'] ?? 'dev-master';
 $app = new Application('FreeFrame CLI', $version);
 
 // Register your command classes

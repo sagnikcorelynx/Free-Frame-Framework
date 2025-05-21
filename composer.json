@@ -41,5 +41,6 @@
         "filp/whoops": "^2.18"
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "version": "2.5.0"
 }
