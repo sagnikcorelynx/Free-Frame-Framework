@@ -206,6 +206,29 @@ extension=php_mongodb.dll
 $ php free migrate
 ```
 
+### ORM Relationsships
+```php
+use App\Models\Profile;
+use App\Models\Post;
+use App\Models\User;
+
+public function profileDetails()
+{
+    return $this->hasOnlyOne(Profile::class, 'user_id');
+}
+
+public function posts()
+{
+    return $this->hasManyMore(Post::class, 'user_id');
+}
+
+public function author()
+{
+    return $this->belongsToOnly(User::class, 'user_id');
+}
+
+```
+
 ### Create Routes
 > At routes/route.php
 ```php
