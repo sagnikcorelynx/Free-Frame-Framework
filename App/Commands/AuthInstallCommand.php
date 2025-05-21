@@ -23,8 +23,8 @@ class AuthInstallCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $controllerPath = __DIR__ . '/../../Http/Controllers/AuthController.php';
-        $middlewarePath = __DIR__ . '/../../App/Http/Middleware/JwtMiddleware.php';
+        $controllerPath = __DIR__ . '/../Controllers/AuthController.php';
+        $middlewarePath = __DIR__ . '/../Middleware/JwtMiddleware.php';
 
         // Create AuthController
         if (!file_exists(dirname($controllerPath))) {
