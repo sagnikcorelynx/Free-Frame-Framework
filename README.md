@@ -206,7 +206,7 @@ extension=php_mongodb.dll
 $ php free migrate
 ```
 
-### ORM Relationsships
+### ORM Relationships
 ```php
 use App\Models\Profile;
 use App\Models\Post;
