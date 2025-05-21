@@ -206,6 +206,30 @@ extension=php_mongodb.dll
 $ php free migrate
 ```
 
+### Create Custom Request
+```sh
+$ php free make:request CommonRequest
+```
+```php
+use Core\Http\Request;
+use Core\Http\Response;
+use use App\Requests\CommonRequest;
+
+public function store()
+{
+    $request = new Request();
+    $userRequest = new UserRequest();
+
+    if (!$userRequest->validate($request->all())) {
+        return Response::json(['errors' => $userRequest->errors()], 422)->send();
+    }
+
+    // Proceed with storing user...
+
+    return Response::json(['message' => 'User created successfully']);
+}
+```
+
 ### ORM Relationships
 ```php
 use App\Models\Profile;
