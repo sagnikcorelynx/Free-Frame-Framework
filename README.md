@@ -230,6 +230,12 @@ public function store()
 }
 ```
 
+### Auth Scaffolding feature (JWT Authentication)
+```sh
+$ php free auth:install
+```
+> `AuthController`, `AuthMiddleware` will created `JWT secret` will append in `.env`
+
 ### ORM Relationships
 ```php
 use App\Models\Profile;

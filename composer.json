@@ -18,6 +18,7 @@
     ],
     "require": {
         "php": ">=8.0",
+        "firebase/php-jwt": "^6.11",
         "symfony/console": "^7.2"
     },
     "autoload": {
