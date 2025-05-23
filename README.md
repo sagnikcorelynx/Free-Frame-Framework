@@ -198,6 +198,16 @@ if ($db instanceof \MongoDB\Database) {
 }
 ```
 > Install Mongodb extension
+> Download extension for Windows from here according to PHP version: [Click](https://pecl.php.net/package/mongodb/2.0.0/windows)
+> Check thread safety or not 
+```sh
+$ php -i > phpinfo.txt 
+```
+> Search `Thread Safety`, 💡 If Thread Safety is enabled, you need the TS version of the MongoDB DLL.
+If it's disabled, download the NTS version.
+> Place the downloaded .dll into: `C:\xampp\php\ext`
+> Open your php.ini file `(in C:\xampp\php)` and add: `extension=mongodb`
+> Restart Apache using the XAMPP control panel.
 ```sh
 extension=php_mongodb.dll
 ```
