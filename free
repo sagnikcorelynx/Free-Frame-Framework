@@ -14,7 +14,7 @@ $composer = json_decode(file_get_contents(__DIR__ . '/composer.json'), true);
 $version = $composer['version'] ?? 'dev-master';
 $app = new Application('FreeFrame CLI', $version);
 
-// Register your command classes
+// Register command classes
 $app->add(new ServeCommand());
 $app->add(new MakeControllerCommand());
 $app->add(new \App\Commands\MakeServiceCommand());
