@@ -126,4 +126,20 @@ class QueryBuilder
         $results = $this->get();
         return $results ? $results[0] : null;
     }
+
+    public function join(string $table, string $first, string $operator, string $second, string $type = 'INNER')
+    {
+        $joinClause = "$type JOIN $table ON $first $operator $second";
+        $this->conditions[] = $joinClause;
+        return $this;
+    }
+
+    
+    public function paginate(int $perPage, int $currentPage = 1)
+    {
+        $this->limit = $perPage;
+        $this->offset = ($currentPage - 1) * $perPage;
+        return $this->get();
+    }
+
 }
