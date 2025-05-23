@@ -37,6 +37,9 @@ $commands = [
     'log:clear'               => 'Clear error logs',
     'make:command'            => 'Create custom command file',
     'storage:link'            => 'Create simbolic link between storage and public',
+    'migrate'                 => 'Run database migrations',
+    'auth:install'           => 'Install authentication scaffolding',
+    'make:request'            => 'Generate request file',
     'help'                    => 'List all available commands',
     'serve'                   => 'Start development server'
 ];
