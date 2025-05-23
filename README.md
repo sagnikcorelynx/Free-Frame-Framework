@@ -315,6 +315,24 @@ Session::has($key);
 Session::flush();
 ```
 
+### PHP Curl Operation
+```php
+use Core\Http\HttpRemote;
+
+(array) $headers;
+(array) $data;
+
+$http = new HttpRemote();
+//Fetch a remote URL
+$http->get($url, $headers);
+// Post data to Remote URL
+$http->post($url, $data, $headers);
+// Update to Remote URL
+$http->put($url, $data, $headers);
+//Delete request
+$http->delete($url, $data, $headers);
+```
+
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
 
