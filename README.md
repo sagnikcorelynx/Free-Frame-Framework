@@ -276,6 +276,28 @@ use App\Controllers\HomeController;
 
 $router->get('/', 'HomeController@index');
 ```
+> Define Routes with Prefixes
+```php
+$router->group(['prefix' => '/api'], function ($router) {
+    $router->get('/users', 'UserController@index');
+    $router->post('/login', 'AuthController@login');
+});
+
+$router->group(['prefix' => '/admin'], function ($router) {
+    $router->get('/dashboard', 'AdminController@dashboard');
+    $router->post('/settings', 'AdminController@saveSettings');
+});
+```
+This will shown as
+```text
+/api/users
+
+/api/login
+
+/admin/dashboard
+
+/admin/settings
+```
 
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**

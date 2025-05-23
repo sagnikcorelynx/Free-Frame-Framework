@@ -7,6 +7,7 @@ use Closure;
 class Router
 {
     protected array $routes = [];
+    protected string $currentGroupPrefix = '';
 
     /**
      * Register a GET route.
@@ -16,23 +17,25 @@ class Router
      * @param array $middleware
      * @return void
      */
-    public function get(string $uri, $action, array $middleware = []): void
+    public function get(string $uri, $action): void
     {
-        $this->addRoute('GET', $uri, $action, $middleware);
+        $this->addRoute('GET', $this->currentGroupPrefix . $uri, $action);
     }
 
     /**
      * Register a POST route.
      *
-     * @param string $uri
-     * @param mixed $action
-     * @param array $middleware
+     * @param string $uri URI for the route.
+     * @param mixed $action Callable action to be executed when the route is requested.
      * @return void
      */
-    public function post(string $uri, $action, array $middleware = []): void
+
+    public function post(string $uri, $action): void
     {
-        $this->addRoute('POST', $uri, $action, $middleware);
+        $this->addRoute('POST', $this->currentGroupPrefix . $uri, $action);
     }
+
+    
 
     /**
      * Add a route to the router.
@@ -128,5 +131,15 @@ class Router
     public function getRoutes(): array
     {
         return $this->routes;
+    }
+
+    public function group(array $options, \Closure $callback): void
+    {
+        $previousPrefix = $this->currentGroupPrefix;
+        $this->currentGroupPrefix .= rtrim($options['prefix'] ?? '', '/');
+
+        $callback($this); // Call routes inside the group
+
+        $this->currentGroupPrefix = $previousPrefix; // Restore previous prefix
     }
 }
