@@ -142,4 +142,13 @@ class QueryBuilder
         return $this->get();
     }
 
+    
+    public function save(array $data)
+    {
+        if (!empty($this->conditions)) {
+            return $this->update($data);
+        }
+        return $this->insert($data);
+    }
+
 }
