@@ -41,6 +41,7 @@ $commands = [
     'migrate'                 => 'Run database migrations',
     'auth:install'           => 'Install authentication scaffolding',
     'make:request'            => 'Generate request file',
+    'package:list'            => 'List all installed packages',
     'help'                    => 'List all available commands',
     'serve'                   => 'Start development server'
 ];
