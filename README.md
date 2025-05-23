@@ -299,6 +299,22 @@ This will shown as
 /admin/settings
 ```
 
+### Session Manage
+```php
+use Core\Facades\Session;
+
+//Set a Key
+Session::set($key, $value);
+// Get a Key Value
+Session::get($key);
+//Remove Key
+Session::forget($key);
+//Check session has a particular key
+Session::has($key);
+//Clear all Session
+Session::flush();
+```
+
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
 
