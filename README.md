@@ -228,7 +228,7 @@ use App\Requests\CommonRequest;
 public function store()
 {
     $request = new Request();
-    $userRequest = new UserRequest();
+    $userRequest = new CommonRequest();
 
     if (!$userRequest->validate($request->all())) {
         return Response::json(['errors' => $userRequest->errors()], 422)->send();
