@@ -43,7 +43,7 @@ $response = $kernel->handle($request, function ($request) use ($router, $uri, $m
                     <div style="text-align: center;">
                         <img src="/assets/logo.webp" width="50%" height="50%" alt="FreeFrame Logo">
                         <h1 style="font-size: 3em; color: #3a9cff;">Welcome to <span style="font-weight: bold;">FreeFrame</span>!</h1>
-                        <p style="font-size: 1.5em;">A lightweight PHP framework with a custom CLI, inspired by Laravel and CakePHP.</p>
+                        <p style="font-size: 1.5em;">A lightweight PHP framework with a custom CLI.</p>
                     </div>
                 </div>
             HTML;
