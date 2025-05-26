@@ -333,6 +333,24 @@ $http->put($url, $data, $headers);
 $http->delete($url, $data, $headers);
 ```
 
+### Global Middlewares
+> `App/Middleware/RateLimitMiddleware`
+```php
+// Maximum requests allowed per time window
+protected int $maxRequests = 10;
+// Time window duration in seconds (e.g., 60 seconds = 1 minute)
+protected int $timeWindow = 60;
+```
+> `App/Middleware/AuthMiddleware`
+```php
+public function handle($request, Closure $next)
+{
+    // Add your logic here
+
+    return $next($request);
+}
+```
+
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
 

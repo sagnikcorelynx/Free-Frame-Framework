@@ -29,15 +29,22 @@ $method = $_SERVER['REQUEST_METHOD'];
 // Kernel middleware execution
 $kernel = new Kernel();
 
-$response = $kernel->handle($request, function ($request) use ($router, $uri, $method) {
-    // This callback runs after middleware and returns a Response
-    $routerResponse = $router->dispatch($uri, $method);
+$routeMatch = $router->match($uri, $method);
 
-    if ($routerResponse !== null) {
-        // Wrap into a Response object
-        return new Response($routerResponse);
-    } else {
-        if ($uri == '/') {
+if ($routeMatch) {
+    $routeMiddleware = $routeMatch->getMiddleware() ?? [];
+
+    $response = $kernel->handle($request, function ($request) use ($routeMatch) {
+        $controller = new ($routeMatch->controller)();
+        $action = $routeMatch->method;
+        $content = $controller->$action($request);
+
+        return new Response($content);
+    }, $routeMiddleware);
+} else {
+    // No matched route fallback
+    $response = $kernel->handle($request, function () use ($uri) {
+        if ($uri === '/') {
             $html = <<<HTML
                 <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
                     <div style="text-align: center;">
@@ -48,11 +55,18 @@ $response = $kernel->handle($request, function ($request) use ($router, $uri, $m
                 </div>
             HTML;
             return new Response($html);
-        } else {
-            return new Response('404 - Not Found', 404);
         }
-    }
-});
+        $html = <<<HTML
+            <div style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+                <div style="text-align: center;">
+                    <h1 style="font-size: 3em; color: #3a9cff;">404 not found...!</h1>
+                    <p style="font-size: 1.5em;">The requested page could not be found.</p>
+                </div>
+            </div>
+            HTML;
+        return new Response($html, 404);
+    });
+}
 
 // Send final response to browser
 $response->send();

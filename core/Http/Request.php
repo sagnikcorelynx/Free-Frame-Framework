@@ -115,4 +115,22 @@ class Request
     {
         return parse_url($this->server['REQUEST_URI'] ?? '/', PHP_URL_PATH);
     }
+
+    public function getIp(): string
+    {
+        // Check for shared internet/ISP IP
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            return $_SERVER['HTTP_CLIENT_IP'];
+        }
+
+        // Check for IPs passed from proxies
+        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            // Sometimes multiple IPs passed, take the first one
+            $ipList = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+            return trim($ipList[0]);
+        }
+
+        // Default remote IP address
+        return $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+    }
 }

@@ -8,6 +8,7 @@ class Router
 {
     protected array $routes = [];
     protected string $currentGroupPrefix = '';
+    public array $middleware = [];
 
     /**
      * Register a GET route.
@@ -141,5 +142,27 @@ class Router
         $callback($this); // Call routes inside the group
 
         $this->currentGroupPrefix = $previousPrefix; // Restore previous prefix
+    }
+
+    public function match(string $uri, string $method)
+    {
+        foreach ($this->routes as $route) {
+            if ($route->method === $method && $route->uri === $uri) {
+                return $route;
+            }
+        }
+
+        return null;
+    }
+
+    public function middleware(array $middleware)
+    {
+        $this->middleware = $middleware;
+        return $this;
+    }
+
+    public function getMiddleware(): array
+    {
+        return $this->middleware;
     }
 }
