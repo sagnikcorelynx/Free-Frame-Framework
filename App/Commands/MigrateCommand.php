@@ -42,7 +42,6 @@ class MigrateCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $pdo = $this->getPDO();
-
         $this->createMigrationsTable($pdo);
 
         $migrated = $this->getMigratedMigrations($pdo);
@@ -85,8 +84,22 @@ class MigrateCommand extends Command
      */
     private function getPDO(): PDO
     {
-        $db = require __DIR__ . '/../../config/database.php';
-        return new PDO("mysql:host={$db['host']};dbname={$db['database']}", $db['username'], $db['password']);
+        $driver = config('database.default', 'mysql');
+        $db = config("database.connections.$driver");
+        if (!$db) {
+            throw new RuntimeException("Database connection [$driver] not configured.");
+        }
+        $dsn = "{$db['driver']}:host={$db['host']};dbname={$db['database']};charset=utf8mb4";
+        return new PDO(
+            $dsn,
+            $db['username'],
+            $db['password'],
+            [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ]
+        );
     }
 
     /**

@@ -10,15 +10,18 @@ if (!function_exists('config')) {
     function config(string $key, $default = null)
     {
         static $configs = [];
+
+        // Load only once
         if (empty($configs)) {
-            // Load all config files from config folder
-            foreach (glob(__DIR__ . '/../config/*.php') as $file) {
+            foreach (glob(__DIR__ . '/../../config/*.php') as $file) {
                 $name = basename($file, '.php');
                 $configs[$name] = require $file;
             }
         }
+
         $keys = explode('.', $key);
         $value = $configs;
+
         foreach ($keys as $segment) {
             if (is_array($value) && array_key_exists($segment, $value)) {
                 $value = $value[$segment];

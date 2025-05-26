@@ -1,9 +1,6 @@
 <?php
 
-function env($key, $default = null)
-{
-    return $_ENV[$key] ?? $_SERVER[$key] ?? $default;
-}
+
 
 return [
     'default' => env('DB_CONNECTION', 'mysql'),
