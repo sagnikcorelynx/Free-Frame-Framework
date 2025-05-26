@@ -4,7 +4,7 @@ namespace Core;
 
 class Logger
 {
-    protected static $logFile = __DIR__ . '/../../Storage/Logs/error.log';
+    protected static $logFile = __DIR__ . '/../Storage/Logs/error.log';
 
     public static function log($level, $message, $context = [])
     {

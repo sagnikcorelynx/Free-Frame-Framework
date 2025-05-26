@@ -14,6 +14,13 @@ class Response
         $this->headers = $headers;
     }
 
+    public function header(string $key, string $value): self
+    {
+        header("$key: $value", true);
+        $this->headers[$key] = $value;
+        return $this;
+    }
+
     /**
      * Sends the HTTP response to the client.
      * 
@@ -66,6 +73,4 @@ class Response
         ];
         return new static($content, 200, $headers);
     }
-
-    // Add redirect or other helper methods if needed
 }
