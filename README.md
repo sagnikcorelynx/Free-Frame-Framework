@@ -351,6 +351,30 @@ public function handle($request, Closure $next)
 }
 ```
 
+### Json Resource Class
+> Create a Custom Json Resource file Ex: `UserResource` under `App\Resources`
+```php
+namespace App\Resources;
+
+use App\Resources\JsonResource;
+
+class UserResource extends JsonResource
+{
+    public function toArray(): array
+    {
+        return [
+            'user_id' => $this->resource['id'],
+            'full_name' => $this->resource['name'],
+            'email' => $this->resource['email'],
+            // Add more formatted fields here
+        ];
+    }
+}
+// Use in Controller
+$userResource = new UserResource($user);
+$userResource->send();
+```
+
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
 
