@@ -29,6 +29,7 @@ $app->add(new App\Commands\MakeRequestCommand());
 $app->add(new App\Commands\AuthInstallCommand());
 $app->add(new App\Commands\PackageListCommand());
 $app->add(new App\Commands\MakeMigrationCommand());
+$app->add(new App\Commands\MakeResourceCommand());
 
 $commands = [
     'make:controller'         => 'Generate a controller file',
@@ -39,6 +40,7 @@ $commands = [
     'log:clear'               => 'Clear error logs',
     'make:command'            => 'Create custom command file',
     'storage:link'            => 'Create simbolic link between storage and public',
+    'make:resource'           => 'Generate API resource class',
     'migrate'                 => 'Run database migrations',
     'auth:install'            => 'Install authentication scaffolding',
     'make:request'            => 'Generate request file',
