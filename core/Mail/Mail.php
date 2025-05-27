@@ -90,6 +90,20 @@ class Mail
         return $this;
     }
 
+    
+    /**
+     * Attach a file to the email.
+     *
+     * @param string $path The path to the file to attach.
+     * @param string $name The name of the attachment (optional).
+     * @return static
+     */
+    public function attach(string $path, string $name = ''): static
+    {
+        $this->mailer->addAttachment($path, $name);
+        return $this;
+    }
+
     /**
      * Sends the email.
      *
