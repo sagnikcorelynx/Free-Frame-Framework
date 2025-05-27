@@ -3,10 +3,14 @@
 // Autoload dependencies
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Dotenv\Dotenv;
+
 $dotenvPath = __DIR__ . '/../.env';
 
 
 use Core\Language;
+use Core\Events\EventDispatcher;
+use App\Providers\EventServiceProvider;
 // Load environment variables from .env file
 if (file_exists($dotenvPath)) {
     $lines = file($dotenvPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -19,6 +23,12 @@ if (file_exists($dotenvPath)) {
     }
 }
 Language::setLocale(config('app.locale', 'en'));
+// $dispatcher = new EventDispatcher();
+// EventServiceProvider::register($dispatcher);
+// app()->bind(EventDispatcher::class, $dispatcher);
+$dotenv = Dotenv::createImmutable(base_path());
+$dotenv->load();
+\Core\Cache\Cache::driver();
 // Load environment or config settings
 $config = require_once __DIR__ . '/../core/config.php';
 define('APP_DEBUG', $config['debug']);

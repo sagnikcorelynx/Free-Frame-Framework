@@ -7,6 +7,15 @@ class Response
     protected $status = 200;
     protected $headers = [];
 
+    /**
+     * Constructor.
+     *
+     * @param string $content The content to send as the response body
+     * @param int $status The HTTP status code to use (default: 200)
+     * @param array $headers Additional HTTP headers to include in the response
+     *
+     * @return self
+     */
     public function __construct($content = '', int $status = 200, array $headers = [])
     {
         $this->content = $content;
@@ -14,6 +23,14 @@ class Response
         $this->headers = $headers;
     }
 
+    /**
+     * Sets a single HTTP header in the response.
+     * 
+     * @param string $key The header key
+     * @param string $value The header value
+     * 
+     * @return self The response object, for chaining
+     */
     public function header(string $key, string $value): self
     {
         header("$key: $value", true);

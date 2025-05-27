@@ -78,3 +78,15 @@ if (!function_exists('lang')) {
         return Language::get($key, $default);
     }
 }
+
+if (!function_exists('base_path')) {
+    function base_path(string $path = ''): string
+    {
+        return rtrim(__DIR__ . '/../../', '/') . ($path ? '/' . ltrim($path, '/') : '');
+    }
+}
+if (!function_exists('storage_path')) {
+    function storage_path(string $path = ''): string {
+        return base_path('Storage') . ($path ? DIRECTORY_SEPARATOR . $path : '');
+    }
+}
