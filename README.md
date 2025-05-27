@@ -394,6 +394,17 @@ $ php free make:migration drop_orders_table
 lang('lang_key_name');
 ```
 
+### Mailing system
+```php
+use Core\Mail\Mail;
+
+$mailer = new Mail();
+$mailer->to('recipient@example.com', 'John Doe')
+     ->subject('Welcome to FreeFrame!')
+     ->body('<h1>Hello from FreeFrame</h1><p>This is your welcome email.</p>')
+     ->send();
+```
+
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
 
