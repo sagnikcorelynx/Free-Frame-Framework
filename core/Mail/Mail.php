@@ -98,7 +98,7 @@ class Mail
      * @param string $name The name of the attachment (optional).
      * @return static
      */
-    public function attach(string $path, string $name = ''): static
+    public function attachment(string $path, string $name = ''): static
     {
         $this->mailer->addAttachment($path, $name);
         return $this;
