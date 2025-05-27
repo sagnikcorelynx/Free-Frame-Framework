@@ -50,25 +50,40 @@ class MigrateCommand extends Command
         $batch = time();
         $ran = 0;
 
-        foreach ($files as $file) {
-            $className = $this->getClassName($file);
+        // Create Doctrine DBAL Connection from PDO
+        $config = new \Doctrine\DBAL\Configuration();
+        $driver = config('database.default', 'mysql');
+        $db = config("database.connections.$driver");
+        $connectionParams = [
+            'pdo' => $pdo,
+            'driver' => 'pdo_mysql',
+            'user' => $db['username'],
+            'password' => $db['password'],
+            'dbname' => $db['database'],
+            'host' => $db['host'],
+        ];
+        $connection = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
-            if (in_array($className, $migrated)) {
+        foreach ($files as $file) {
+            $filename = basename($file);
+
+            if (in_array($filename, $migrated)) {
                 continue;
             }
 
-            require_once $file;
-            $migration = new $className;
+            $migration = require $file; // ✅ This returns the anonymous class object
 
-            $query = $migration->up();
-            $pdo->exec($query);
+            if (method_exists($migration, 'up')) {
+                $migration->up($connection);
+            }
 
-            $pdo->prepare("INSERT INTO migrations (migration, batch) VALUES (?, ?)")
-                ->execute([$className, $batch]);
+            $stmt = $pdo->prepare("INSERT INTO migrations (migration, batch) VALUES (?, ?)");
+            $stmt->execute([$filename, $batch]);
 
-            $output->writeln("<info>Migrated:</info> $className");
+            $output->writeln("<info>Migrated:</info> $filename");
             $ran++;
         }
+
 
         if ($ran === 0) {
             $output->writeln("<comment>No new migrations.</comment>");

@@ -375,6 +375,20 @@ $userResource = new UserResource($user);
 $userResource->send();
 ```
 
+### Maintain Migration file
+> Create a `users` table
+```sh
+$ php free make:migration create_users_table
+```
+> Migrate the db
+```sh
+$ php free migrate
+```
+> Drop a table
+```sh
+$ php free make:migration drop_orders_table
+```
+
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
 

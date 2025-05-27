@@ -28,6 +28,7 @@ $app->add(new App\Commands\MakeMiddlewareCommand());
 $app->add(new App\Commands\MakeRequestCommand());
 $app->add(new App\Commands\AuthInstallCommand());
 $app->add(new App\Commands\PackageListCommand());
+$app->add(new App\Commands\MakeMigrationCommand());
 
 $commands = [
     'make:controller'         => 'Generate a controller file',
@@ -43,6 +44,7 @@ $commands = [
     'make:request'            => 'Generate request file',
     'package:list'            => 'List all installed packages',
     'help'                    => 'List all available commands',
+    'migrate'                 => 'Run database migrations',
     'serve'                   => 'Start development server'
 ];
 
