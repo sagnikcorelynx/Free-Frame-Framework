@@ -4,6 +4,9 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $dotenvPath = __DIR__ . '/../.env';
+
+
+use Core\Language;
 // Load environment variables from .env file
 if (file_exists($dotenvPath)) {
     $lines = file($dotenvPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -15,6 +18,7 @@ if (file_exists($dotenvPath)) {
         putenv(trim($key) . '=' . trim($value));
     }
 }
+Language::setLocale(config('app.locale', 'en'));
 // Load environment or config settings
 $config = require_once __DIR__ . '/../core/config.php';
 define('APP_DEBUG', $config['debug']);

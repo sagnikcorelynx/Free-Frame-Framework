@@ -388,6 +388,11 @@ $ php free migrate
 ```sh
 $ php free make:migration drop_orders_table
 ```
+### Language manage
+> Add language files at `lang` directory in array format, and then set the desired lang code at `config/app.php`
+```php
+lang('lang_key_name');
+```
 
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**

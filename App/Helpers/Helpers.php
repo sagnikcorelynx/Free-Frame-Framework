@@ -1,4 +1,5 @@
 <?php
+use Core\Language;
 if (!function_exists('config')) {
     /**
      * Get a configuration value using dot notation.
@@ -68,5 +69,12 @@ if (!function_exists('env')) {
             return $default;
         }
         return $value;
+    }
+}
+
+if (!function_exists('lang')) {
+    function lang($key, $default = null)
+    {
+        return Language::get($key, $default);
     }
 }
