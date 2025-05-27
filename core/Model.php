@@ -9,12 +9,22 @@ use MongoDB\Driver\Manager as MongoDBManager;
 use MongoDB\Driver\Query as MongoDBQuery;
 use MongoDB\Driver\Cursor as MongoDBCursor;
 use Core\Database\QueryBuilder;
+use Core\Traits\SoftDeletes;
 
 class Model extends QueryBuilder
 {
+    use SoftDeletes;
+    /**
+     * @var PDO|null
+     */
     protected static $connection;
     protected $table;
 
+    /**
+     * Model constructor.
+     *
+     * @param PDO $pdo
+     */
     public function __construct(PDO $pdo)
     {
         parent::__construct($pdo);
@@ -30,6 +40,11 @@ class Model extends QueryBuilder
         }
     }
 
+    /**
+     * Connect to the database.
+     *
+     * @return void
+     */
     protected function connect()
     {
         $config = require __DIR__ . '/../config/database.php';
