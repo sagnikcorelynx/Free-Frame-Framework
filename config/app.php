@@ -2,5 +2,5 @@
 
 return [
     'name' => 'FreeFrame',
-    'locale' => 'en',
+    'locale' => env('LOCALE','en'),
 ];
