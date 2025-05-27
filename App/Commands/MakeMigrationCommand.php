@@ -23,6 +23,14 @@ class MakeMigrationCommand extends Command
         $this->addArgument('name', InputArgument::REQUIRED, 'Migration name');
     }
 
+        /**
+         * Executes the command.
+         *
+         * @param InputInterface $input
+         * @param OutputInterface $output
+         *
+         * @return int
+         */
     protected function execute(InputInterface $input, OutputInterface $output): int
 {
     $name = $input->getArgument('name');
