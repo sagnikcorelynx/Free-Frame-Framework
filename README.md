@@ -197,7 +197,7 @@ if ($db instanceof \MongoDB\Database) {
     $users = $collection->find()->toArray();
 }
 ```
-> Install Mongodb extension
+### Install Mongodb extension for PHP
 > Download extension for Windows from here according to PHP version: [Click](https://pecl.php.net/package/mongodb/2.0.0/windows)
 > Check thread safety or not 
 ```sh
@@ -211,6 +211,20 @@ If it's disabled, download the NTS version.
 ```sh
 extension=php_mongodb.dll
 ```
+### Install Cassandra DB for PHP
+> Download and install cassndra dll (windows) file from here: [Click](https://pecl.php.net/package/cassandra/1.3.2/windows)
+
+> Unzip the Zip and take `php_cassandra.dll` file and then place it on `C:\xampp\php\ext`, after that
+Open Open your php.ini file `(in C:\xampp\php)` and add: `extension=php_cassandra.dll`
+- For linux
+```sh
+$ sudo pecl install cassandra
+```
+Add this extension at php.ini file `(in C:\xampp\php)`
+```php
+extension=cassandra.so
+```
+
 ### Migrate Tables from RDB
 ```sh
 $ php free migrate

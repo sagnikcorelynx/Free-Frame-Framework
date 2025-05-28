@@ -24,6 +24,15 @@ return [
             'username' => env('DB_USERNAME', ''),
             'password' => env('DB_PASSWORD', ''),
         ],
+        
+        'cassandra' => [
+            'driver'   => 'cassandra',
+            'host'     => env('DB_HOST', '127.0.0.1'),
+            'port'     => env('DB_PORT', '9042'),
+            'database' => env('DB_DATABASE', 'freeframe'),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
+        ],
     ],
 ];
 

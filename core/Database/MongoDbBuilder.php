@@ -47,6 +47,50 @@ class MongoDbBuilder
         return $this->manager->executeQuery($this->collectionName, $query);
     }
 
+    
+    /**
+     * @param array $conditions
+     * @return array
+     */
+    public function first(array $conditions = [])
+    {
+        $cursor = $this->get($conditions);
+        $result = $cursor->toArray();
+        return reset($result);
+    }
+
+    
+    /**
+     * @param array $pipeline
+     * @return \MongoDB\Driver\Cursor
+     */
+    public function aggregate(array $pipeline)
+    {
+        return $this->manager->executeAggregate($this->collectionName, $pipeline);
+    }
+
+    
+    /**
+     * @param string $collection
+     * @param string $foreign_key
+     * @param string $local_key
+     * @return \MongoDB\Driver\Cursor
+     */
+    public function join(string $collection, string $foreign_key, string $local_key)
+    {
+        $pipeline = [
+            [
+                '$lookup' => [
+                    'from' => $collection,
+                    'localField' => $local_key,
+                    'foreignField' => $foreign_key,
+                    'as' => $collection,
+                ],
+            ],
+        ];
+        return $this->aggregate($pipeline);
+    }
+
     /**
      * @param array $conditions
      * @return int
@@ -72,6 +116,24 @@ class MongoDbBuilder
                 ],
             ],
         ]);
+    }
+
+    
+    /**
+     * @param array $data
+     * @return \MongoDB\Driver\WriteResult
+     */
+    public function bulkInsert(array $data)
+    {
+        $bulkWrite = array_map(function ($item) {
+            return [
+                'insertOne' => [
+                    'document' => $item,
+                ],
+            ];
+        }, $data);
+        
+        return $this->manager->executeBulkWrite($this->collectionName, $bulkWrite);
     }
 
     /**
@@ -141,6 +203,38 @@ class MongoDbBuilder
     public function limit(int $limit)
     {
         $this->options['limit'] = $limit;
+        return $this;
+    }
+
+    
+    /**
+     * @param string $column
+     * @param array $pipeline
+     * @return \MongoDB\Driver\Cursor
+     */
+    public function groupBy(string $column, array $pipeline)
+    {
+        $pipeline = array_merge([
+            ['$group' => [
+                '_id' => '$' . $column,
+                'count' => ['$sum' => 1],
+            ]],
+        ], $pipeline);
+
+        $cursor = $this->manager->executeAggregate($this->collectionName, $pipeline);
+        return $cursor;
+    }
+
+    
+    /**
+     * @param string $column
+     * @return $this
+     */
+    public function latest(string $column = 'created_at')
+    {
+        $this->options['sort'] = [
+            $column => -1,
+        ];
         return $this;
     }
 }

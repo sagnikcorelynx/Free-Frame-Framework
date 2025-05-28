@@ -37,7 +37,61 @@ class Router
     }
 
     
+    
+    /**
+     * Register a PATCH route.
+     *
+     * @param string $uri
+     * @param mixed $action
+     * @param array $middleware
+     * @return void
+     */
+    public function patch(string $uri, $action, array $middleware = []): void
+    {
+        $this->addRoute('PATCH', $this->currentGroupPrefix . $uri, $action, $middleware);
+    }
 
+    
+    /**
+     * Register a DELETE route.
+     *
+     * @param string $uri
+     * @param mixed $action
+     * @param array $middleware
+     * @return void
+     */
+    public function delete(string $uri, $action, array $middleware = []): void
+    {
+        $this->addRoute('DELETE', $this->currentGroupPrefix . $uri, $action, $middleware);
+    }
+
+    
+    /**
+     * Register a PUT route.
+     *
+     * @param string $uri
+     * @param mixed $action
+     * @param array $middleware
+     * @return void
+     */
+    public function put(string $uri, $action, array $middleware = []): void
+    {
+        $this->addRoute('PUT', $this->currentGroupPrefix . $uri, $action, $middleware);
+    }
+
+    
+    /**
+     * Register a HEAD route.
+     *
+     * @param string $uri
+     * @param mixed $action
+     * @param array $middleware
+     * @return void
+     */
+    public function head(string $uri, $action, array $middleware = []): void
+    {
+        $this->addRoute('HEAD', $this->currentGroupPrefix . $uri, $action, $middleware);
+    }
     /**
      * Add a route to the router.
      *
@@ -144,17 +198,58 @@ class Router
         $this->currentGroupPrefix = $previousPrefix; // Restore previous prefix
     }
 
+    private function matchRoutePattern($pattern, $uri)
+    {
+        $pattern = trim($pattern, '/');
+        $uri = trim($uri, '/');
+        $patternParts = explode('/', $pattern);
+        $uriParts = explode('/', $uri);
+        $params = [];
+        foreach ($patternParts as $i => $part) {
+            if (!isset($uriParts[$i])) {
+                // Handle optional parameter
+                if (preg_match('/^{\w+\?}$/', $part)) {
+                    $params[trim($part, '{}?')] = null;
+                    continue;
+                }
+                return false; // Required part missing
+            }
+            if (preg_match('/^{(\w+)\??}$/', $part, $matches)) {
+                $params[$matches[1]] = $uriParts[$i];
+            } elseif ($part !== $uriParts[$i]) {
+                return false; // Static part mismatch
+            }
+        }
+        return $params;
+    }
+
+    /**
+     * Match a route based on the URI and method.
+     *
+     * @param string $uri The request URI.
+     * @param string $method The HTTP method (GET, POST, etc.).
+     *
+     * @return Route|null Returns the matched route or null if no match is found.
+     */
     public function match(string $uri, string $method)
     {
-        foreach ($this->routes as $route) {
-            if ($route->method === $method && $route->uri === $uri) {
+        foreach ($this->routes[$method] ?? [] as $route) {
+            $params = $this->matchRoutePattern($route->getUri(), $uri);
+            if ($params !== false) {
+                $route->setParams($params);
                 return $route;
             }
         }
-
         return null;
     }
 
+    /**
+     * Add middleware to the route group.
+     *
+     * @param array $middleware Array of middleware class names
+     *
+     * @return $this
+     */
     public function middleware(array $middleware)
     {
         $this->middleware = $middleware;
@@ -165,4 +260,5 @@ class Router
     {
         return $this->middleware;
     }
+
 }
