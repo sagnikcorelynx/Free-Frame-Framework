@@ -52,11 +52,11 @@ if ($routeMatch) {
                         <h1 style="font-size: 2em; color: #3a9cff; margin-bottom: 20px;">Welcome to <span style="font-weight: bold;">FreeFrame</span>!</h1>
                         <p style="font-size: 1.5em; margin-bottom: 20px; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);">A lightweight PHP framework with a custom CLI.</p>
                         <pre style="font-size: 1.2em; text-align: left; background-color: #222; padding: 10px; border-radius: 10px; overflow: auto; max-height: 600px;">
-                            <span style="color: #999;">$ </span><span style="color: #ff6600;">free</span> <span style="color: #66d9ef;">help</span>
-                            <span style="color: #999;">$ </span><span style="color: #ff6600;">free</span> <span style="color: #66d9ef;">make:</span><span style="color: #a6e22e;">controller</span> <span style="color: #a6e22e;">Name</span>
-                            <span style="color: #999;">$ </span><span style="color: #ff6600;">free</span> <span style="color: #66d9ef;">make:</span><span style="color: #a6e22e;">model</span> <span style="color: #a6e22e;">Name</span>
-                            <span style="color: #999;">$ </span><span style="color: #ff6600;">free</span> <span style="color: #66d9ef;">make:</span><span style="color: #a6e22e;">request</span> <span style="color: #a6e22e;">Name</span>
-                            <span style="color: #999;">$ </span><span style="color: #ff6600;">free</span> <span style="color: #66d9ef;">make:</span><span style="color: #a6e22e;">migration</span> <span style="color: #a6e22e;">Name</span>
+                            <span style="color: #999;">$ php </span><span style="color: #ff6600;">free</span> <span style="color: #66d9ef;">help</span>
+                            <span style="color: #999;">$ php </span><span style="color: #ff6600;">free</span> <span style="color: #66d9ef;">make:</span><span style="color: #a6e22e;">controller</span> <span style="color: #a6e22e;">Name</span>
+                            <span style="color: #999;">$ php </span><span style="color: #ff6600;">free</span> <span style="color: #66d9ef;">make:</span><span style="color: #a6e22e;">model</span> <span style="color: #a6e22e;">Name</span>
+                            <span style="color: #999;">$ php </span><span style="color: #ff6600;">free</span> <span style="color: #66d9ef;">make:</span><span style="color: #a6e22e;">request</span> <span style="color: #a6e22e;">Name</span>
+                            <span style="color: #999;">$ php </span><span style="color: #ff6600;">free</span> <span style="color: #66d9ef;">make:</span><span style="color: #a6e22e;">migration</span> <span style="color: #a6e22e;">Name</span>
                         </pre>
                         <p style="font-size: 1.2em; color: #999;">
                             FreeFrame is a lightweight, modular PHP framework, built for rapid development with minimal setup. It comes with its own powerful CLI tool named `free`, allowing you to scaffold components, manage your project structure, and streamline development.
