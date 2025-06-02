@@ -425,6 +425,24 @@ $mailer->to('recipient@example.com', 'John Doe')
 $ composer require webklex/php-imap
 ```
 
+Fill the `.env`
+```env
+IMAP_HOST=imap.gmail.com
+IMAP_PORT=993
+IMAP_ENCRYPTION=ssl
+IMAP_VALIDATE_CERT=true
+IMAP_USERNAME=your_email@gmail.com
+IMAP_PASSWORD=your_password
+```
+Usage
+```php
+use Core\Mail\ImapClient;
+
+$client = new ImapClient();
+$mailbox = $client->getFolders();
+$mails = $client->getInboxMessages();
+$spambox = $client->getSpamMessages();
+```
 
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
