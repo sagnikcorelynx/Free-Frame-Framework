@@ -420,6 +420,7 @@ $mailer->to('recipient@example.com', 'John Doe')
 ```
 
 ### IMAP (Incoming Mail Access Protocol) Feature
+[Docuemntation:](https://github.com/Webklex/php-imap) 
 > Package used 
 ```sh
 $ composer require webklex/php-imap
