@@ -419,6 +419,13 @@ $mailer->to('recipient@example.com', 'John Doe')
      ->send();
 ```
 
+### IMAP (Incoming Mail Access Protocol) Feature
+> Package used 
+```sh
+$ composer require webklex/php-imap
+```
+
+
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
 
