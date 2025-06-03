@@ -460,7 +460,7 @@ use Payments\Gateways\SquareGateway;
 ```
 - Define Payment gateway name at `.env`
 ```env
-DEFAULT_PAYMENT_GATEWAY=stripe
+DEFAULT_PAYMENT_GATEWAY=stripe #razorpay #paypal #square
 ```
 - Fill the details according to Payment Gateway
 ```env
