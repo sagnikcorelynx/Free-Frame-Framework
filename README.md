@@ -254,13 +254,13 @@ public function store()
 }
 ```
 
-### Auth Scaffolding feature (JWT Authentication)
+### 👤 Auth Scaffolding feature (JWT Authentication)
 ```sh
 $ php free auth:install
 ```
 > `AuthController`, `AuthMiddleware` will created `JWT secret` will append in `.env`
 
-### ORM Relationships
+### 🏡 ORM Relationships
 ```php
 use App\Models\Profile;
 use App\Models\Post;
@@ -283,7 +283,7 @@ public function author()
 
 ```
 
-### Create Routes
+### ⛯ Create Routes
 > At routes/route.php
 ```php
 use App\Controllers\HomeController;
@@ -313,7 +313,7 @@ This will shown as
 /admin/settings
 ```
 
-### Session Manage
+### 📟 Session Manage
 ```php
 use Core\Facades\Session;
 
@@ -329,7 +329,7 @@ Session::has($key);
 Session::flush();
 ```
 
-### PHP Curl Operation
+### 🖥️ PHP Curl Operation
 ```php
 use Core\Http\HttpRemote;
 
@@ -347,7 +347,7 @@ $http->put($url, $data, $headers);
 $http->delete($url, $data, $headers);
 ```
 
-### Global Middlewares
+### 🤺 Global Middlewares
 > `App/Middleware/RateLimitMiddleware`
 ```php
 // Maximum requests allowed per time window
