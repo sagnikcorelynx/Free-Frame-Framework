@@ -458,7 +458,7 @@ use Payments\Gateways\PaypalGateway;
 use Payments\Gateways\RazorpayGateway;
 use Payments\Gateways\SquareGateway;
 ```
-- Define Payment gateway name
+- Define Payment gateway name at `.env`
 ```env
 DEFAULT_PAYMENT_GATEWAY=stripe
 ```
