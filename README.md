@@ -365,7 +365,7 @@ public function handle($request, Closure $next)
 }
 ```
 
-### Json Resource Class
+### 🗄️ Json Resource Class
 > Create a Custom Json Resource file Ex: `UserResource` under `App\Resources`
 ```php
 namespace App\Resources;
@@ -389,7 +389,7 @@ $userResource = new UserResource($user);
 $userResource->send();
 ```
 
-### Maintain Migration file
+### 🗃️ Maintain Migration file
 > Create a `users` table
 ```sh
 $ php free make:migration create_users_table
@@ -408,7 +408,7 @@ $ php free make:migration drop_orders_table
 lang('lang_key_name');
 ```
 
-### Mailing system
+### 📧 Mailing system
 ```php
 use Core\Mail\Mail;
 
@@ -419,7 +419,7 @@ $mailer->to('recipient@example.com', 'John Doe')
      ->send();
 ```
 
-### IMAP (Incoming Mail Access Protocol) Feature
+### 📮 IMAP (Incoming Mail Access Protocol) Feature
 [Docuemntation:](https://github.com/Webklex/php-imap) 
 > Package used 
 ```sh
