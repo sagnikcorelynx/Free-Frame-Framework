@@ -453,6 +453,10 @@ $spambox = $client->getSpamMessages();
 - Use
 ```php
 use Payments\PaymentManager;
+use Payments\Gateways\StripeGateway;
+use Payments\Gateways\PaypalGateway;
+use Payments\Gateways\RazorpayGateway;
+use Payments\Gateways\SquareGateway;
 ```
 
 ### 👏 Credit
