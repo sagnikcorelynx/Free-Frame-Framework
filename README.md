@@ -445,6 +445,12 @@ $mails = $client->getInboxMessages();
 $spambox = $client->getSpamMessages();
 ```
 
+### Payments suuported
+1. Stripe
+2. Paypal
+3. Razorpay
+4. Square payment
+
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
 
