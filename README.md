@@ -462,6 +462,24 @@ use Payments\Gateways\SquareGateway;
 ```env
 DEFAULT_PAYMENT_GATEWAY=stripe
 ```
+- Fill the details according to Payment Gateway
+```env
+# Stripe
+STRIPE_KEY=''
+STRIPE_SECRET=''
+
+# Razorpay
+RAZORPAY_KEY=''
+RAZORPAY_SECRET=''
+
+# PayPal
+PAYPAL_CLIENT_ID=''
+PAYPAL_SECRET=''
+
+# Square
+SQUARE_ACCESS_TOKEN=''
+SQUARE_ENV='sandbox'
+```
 
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
