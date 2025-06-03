@@ -445,7 +445,7 @@ $mails = $client->getInboxMessages();
 $spambox = $client->getSpamMessages();
 ```
 
-### Payments suuported
+### Payments supported
 1. Stripe
 2. Paypal
 3. Razorpay
