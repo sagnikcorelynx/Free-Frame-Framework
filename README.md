@@ -447,9 +447,9 @@ $spambox = $client->getSpamMessages();
 
 ### Payments supported
 1. [Stripe](https://docs.stripe.com/api)
-2. Paypal
-3. Razorpay
-4. Square payment
+2. [Paypal](https://developer.paypal.com/api/rest/)
+3. [Razorpay](https://razorpay.com/docs/api/)
+4. [Square payment](https://developer.squareup.com/docs)
 
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
