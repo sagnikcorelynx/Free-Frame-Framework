@@ -450,6 +450,10 @@ $spambox = $client->getSpamMessages();
 2. [Paypal](https://developer.paypal.com/api/rest/)
 3. [Razorpay](https://razorpay.com/docs/api/)
 4. [Square payment](https://developer.squareup.com/docs)
+- Use
+```php
+use Payments\PaymentManager;
+```
 
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
