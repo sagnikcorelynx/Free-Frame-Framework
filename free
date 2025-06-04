@@ -30,6 +30,8 @@ $app->add(new App\Commands\AuthInstallCommand());
 $app->add(new App\Commands\PackageListCommand());
 $app->add(new App\Commands\MakeMigrationCommand());
 $app->add(new App\Commands\MakeResourceCommand());
+$app->add(new App\Commands\MakeJobCommand());
+$app->add(new App\Commands\QueueWorkCommand());
 
 $commands = [
     'make:controller'         => 'Generate a controller file',
