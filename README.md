@@ -480,6 +480,18 @@ PAYPAL_SECRET=''
 SQUARE_ACCESS_TOKEN=''
 SQUARE_ENV='sandbox'
 ```
+🔁 Queue Worker & Queue Job
+```sh
+$ php free make:job JobClassName
+```
+- Run Queue Job
+```sh
+$ php free queue:work
+```
+- Base Queue class
+```php
+\core\Jobs\BaseJob.php
+```
 
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
