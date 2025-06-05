@@ -514,6 +514,17 @@ $ php free queue:work
     ```php
     use Core\AWS\EFSService;
     ```
+> Fill the details at `.env`
+```env
+AWS_ACCESS_KEY_ID=your-access-key
+AWS_SECRET_ACCESS_KEY=your-secret-key
+AWS_DEFAULT_REGION=ap-south-1
+
+AWS_S3_BUCKET=your-bucket-name
+AWS_SQS_QUEUE_URL=https://sqs.ap-south-1.amazonaws.com/xxxx/your-queue
+AWS_SNS_TOPIC_ARN=arn:aws:sns:ap-south-1:xxxx:your-topic
+AWS_SES_EMAIL=verified@yourdomain.com
+```    
 
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
