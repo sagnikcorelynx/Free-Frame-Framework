@@ -498,21 +498,40 @@ $ php free queue:work
     - `\core\AWS\SQSService.php` 
     ```php
     use Core\AWS\SQSService;
+    $awsService = new SQSService();
+    $awsService->sendMessage($message);
     ```
 - SES (Simple Email Service)
     - `\core\AWS\SESService.php`
     ```php
     use Core\AWS\SESService;
+    $awsService = new SESService();
+    $awsService->sendEmail($to, $subject, $htmlBody);
     ```
 - S3 (Simple Storage Service)
     - `\core\AWS\S3Service.php`
     ```php
     use Core\AWS\S3Service;
+    $awsService = new S3Service();
+    $awsService->upload($key, $body, $contentType);
+    $awsService->fetch($key, $type); //$type = 'application/octet-stream'
     ```
+- SNS (Simple notification system)
+    - `\core\AWS\SNSService.php`
+    ```php
+    use Core\AWS\SNSService;
+    $awsService = new SNSService();
+    $awsService->publish($message);
+    $awsService->event($eventName, $data);
+    ```    
 - EFS (Elastic File System)
     - `\core\AWS\EFSService.php`
     ```php
     use Core\AWS\EFSService;
+    $awsService = new EFSService();
+    $awsService->createFileSystem($creationToken);
+    $awsService->describeFileSystems($fileSystemId);
+    $awsService->deleteFileSystem($fileSystemId);
     ```
 > Fill the details at `.env`
 ```env
