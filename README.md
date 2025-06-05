@@ -493,6 +493,28 @@ $ php free queue:work
 \core\Jobs\BaseJob.php
 ```
 
+### AWS Services supported
+- SQS (Simple Queue Service)
+    - `\core\AWS\SQSService.php` 
+    ```php
+    use Core\AWS\SQSService;
+    ```
+- SES (Simple Email Service)
+    - `\core\AWS\SESService.php`
+    ```php
+    use Core\AWS\SESService;
+    ```
+- S3 (Simple Storage Service)
+    - `\core\AWS\S3Service.php`
+    ```php
+    use Core\AWS\S3Service;
+    ```
+- EFS (Elastic File System)
+    - `\core\AWS\EFSService.php`
+    ```php
+    use Core\AWS\EFSService;
+    ```
+
 ### 👏 Credit
 Built with ❤️ by **[Sagnik Dey](https://github.com/sagnikrivud)**
 
